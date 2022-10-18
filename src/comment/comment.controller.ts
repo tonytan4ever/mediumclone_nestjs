@@ -24,7 +24,6 @@ export class CommentController {
 
     @Get()
     async getArticleComments(@Param('slug') slug: string, @Query() query: any): Promise<CommentsResponseInterface> {
-        console.log(`get article ${slug}'s comments`);
         const article = await this.articleService.findBySlug(slug);
         return await this.commentService.getArticleComments(article, query);
     }

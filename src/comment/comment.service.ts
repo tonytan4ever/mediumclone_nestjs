@@ -20,6 +20,7 @@ export class CommentService {
     async getArticleComments(article: ArticleEntity, query: any): Promise<CommentsResponseInterface> {
         const queryBuilder = this.commentRepository
             .createQueryBuilder('comments')
+            .leftJoinAndSelect('comments.author', 'author')
             .andWhere('comments.articleId = :id', {
                 id: article.id}
             );

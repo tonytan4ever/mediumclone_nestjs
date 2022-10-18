@@ -73,6 +73,8 @@ export class UserService {
             select: ['id', 'username', 'email', 'bio', 'image', 'password']
         })
 
+        console.log('user', user);
+
         if (!user) {
             throw new HttpException(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
         }
